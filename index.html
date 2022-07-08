@@ -1,33 +1,46 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Loan Application</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
-    <script src='index.js'></script>
+
+
 </head>
+
 <body>
-<div>
-   <div id="application">
-    Loan Application
-   </div> 
-</div>
-    <form>
-        <div>
-        <label for="name">Full Name:</label>
-        <input type="text" id="name"><br><br>
+    <div>
+        <div id="application">
+            Loan Application
+        </div>
     </div>
-        <label for="email">Email:</label>
-        <input type="text" id="email"><br><br>
-        <label for="pan">PAN Number:</label>
-        <input type="text" id="pan"><br><br>
-        <label for="pan">Loan Amount:</label>
-        <input type="number" id="loan_amount"><br><br>
-        <button type="button">Submit</button><br>
-
-
-    </form>
+    <form  name="stud_form" id="form" action="./thank_you.html" onsubmit="return validateForm()" method="get">
     
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <br><span id="namee"></span>
+        
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <br><span id="emaill"></span>
+
+        <label for="pan">PAN Number:</label>
+        <input type="text" id="pan" name="pan"><br><br>
+        <br><span id="pann"></span>
+
+        <label for="pan">Loan Amount:</label>
+        <input type="number" id="loan_amount"name="loan_amount"><br><br>
+        <br><span id="loan_amountt"></span>
+
+        <input type="submit" value="Submit"><br />
+            
+      
+        
+    </form>
+    <script src='script.js'></script>
+
 </body>
+
 </html>
