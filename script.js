@@ -1,7 +1,7 @@
-let captchaFirst=  Math.floor(1+Math.random()*100);
+let captchaFirst=  Math.floor(1+Math.random()*10);
 console.log(captchaFirst);
 
-let captchaSecond=  Math.floor(1+Math.random()*100);
+let captchaSecond=  Math.floor(1+Math.random()*10);
 console.log(captchaSecond);
 // displaying captcha values on UI
 document.getElementById("firstNumber").innerHTML=captchaFirst;
@@ -19,8 +19,28 @@ if (parseInt(userCaptcha) !== captchaFirst+captchaSecond) {
   let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;
   let pan = document.getElementById("pan").value;
-  let loanAmount = document.getElementById("email").value;
+  let loanAmount = document.getElementById("loan_amount").value;
   // validate data
+  if(name.length===0){
+    alert("Please Enter Valid name")
+    return false;
+  }
+  if(email.length===0){
+    alert("Please Enter Valid Email ID")
+    return false;
+  }
+  if(pan.length===0){
+    alert("Please Enter Valid PAN Number")
+    return false;
+  }
+  if(loanAmount.length===0){
+    alert("Please Enter Loan Amount")
+    return false;
+  }
+
+
+
+
 
   // if success then return true else return false
 
