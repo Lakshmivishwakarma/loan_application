@@ -1,26 +1,33 @@
-let captchaFirst = Math.floor(1 + Math.random() * 10);
-console.log(captchaFirst);
+let captchaFirst;
 
-let captchaSecond = Math.floor(1 + Math.random() * 10);
-console.log(captchaSecond);
-// displaying captcha values on UI
-document.getElementById("firstNumber").innerHTML = captchaFirst;
-document.getElementById("secondNumber").innerHTML = captchaSecond;
+let captchaSecond;
+newCaptcha();
+
+function newCaptcha() {
+  captchaFirst = Math.floor(1 + Math.random() * 10);
+  console.log(captchaFirst);
+  captchaSecond = Math.floor(1 + Math.random() * 10);
+  console.log(captchaSecond);
+  // displaying captcha values on UI
+  document.getElementById("firstNumber").innerHTML = captchaFirst;
+  document.getElementById("secondNumber").innerHTML = captchaSecond;
+}
 
 function validateEmail() {
   let email = document.getElementById("email").value;
   if (email.length === 0) {
     alert("Please Enter Valid Email ID");
     return false;
-  } else { 
+  } else {
     // validate email pattern
     // https://regexr.com/
     const pattern = /\w+([.-\w])*[@]{1}(\w)+[.]{1}([.\w]){2,8}/;
     if (!pattern.test(email)) {
       alert("Invalid Email Format");
-      // document.getElementById("pan").focus();
+      return false;
     }
   }
+  return true;
 }
 
 function validateName() {
@@ -38,6 +45,7 @@ function validateName() {
       return false;
     }
   }
+  return true;
 }
 
 function validatePan() {
@@ -51,13 +59,13 @@ function validatePan() {
     const pattern = /([a-zA-Z]){5}([0-9]{4})[A-Z]/;
     if (!pattern.test(pan)) {
       alert("Invalid PAN Format");
-      // document.getElementById("pan").focus();
+      return false;
     }
   }
+  return true;
 }
 
 function validateLoanAmount() {
-
   let loanAmount = document.getElementById("loan_amount").value;
   if (loanAmount.length === 0) {
     alert("Please Enter Loan Amount");
@@ -66,9 +74,23 @@ function validateLoanAmount() {
     alert("maximum loan amount allowed 999999999");
     return false;
   }
+  return true;
 }
 
 function validateForm() {
+  // validate all the fields if they are valid or not
+
+  if (
+    !validateName() ||
+    !validateEmail() ||
+    !validatePan() ||
+    !validateLoanAmount()
+  ) {
+    alert("form values are invalid");
+    newCaptcha();
+    return false;
+  }
+
   //validating captcha first
 
   const userCaptcha = document.getElementById("captchaAnswer").value;
@@ -77,13 +99,6 @@ function validateForm() {
     return false;
   }
   //get data from form
-
-  // validate data
-
-  //   if (email.length === 0) {
-  //     alert("Please Enter Valid Email ID");
-  //     return false;
-  //   }
 
   // if success then return true else return false
 
