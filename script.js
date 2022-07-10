@@ -12,8 +12,14 @@ function validateEmail() {
   if (email.length === 0) {
     alert("Please Enter Valid Email ID");
     return false;
-  } else {
+  } else { 
     // validate email pattern
+    // https://regexr.com/
+    const pattern = /\w+([.-\w])*[@]{1}(\w)+[.]{1}([.\w]){2,8}/;
+    if (!pattern.test(email)) {
+      alert("Invalid Email Format");
+      // document.getElementById("pan").focus();
+    }
   }
 }
 
