@@ -15,67 +15,105 @@ function newCaptcha() {
 
 function validateEmail() {
   let email = document.getElementById("email").value;
+  let inputEmail=  document.getElementById("emailValidation")
   if (email.length === 0) {
-    alert("Please Enter Valid Email ID");
+    inputEmail.style.display = "block";
+    inputEmail.innerHTML = "*Please Enter Valid Email ID*";
+
     return false;
   } else {
     // validate email pattern
     // https://regexr.com/
     const pattern = /\w+([.-\w])*[@]{1}(\w)+[.]{1}([.\w]){2,8}/;
     if (!pattern.test(email)) {
-      alert("Invalid Email Format");
+      inputEmail.style.display = "block";
+      inputEmail.innerHTML = "*Invalid Email Format*";
+      // alert("Invalid Email Format");
       return false;
     }
   }
+
+  inputEmail.style.display = "block";
+  inputEmail.innerHTML ="";
+
   return true;
 }
 
 function validateName() {
   let name = document.getElementById("name").value;
+  let inputName = document.getElementById("nameValidation");
+
   if (name.length === 0) {
-    alert("Please Enter Valid name");
+    inputName.style.display = "block";
+    inputName.innerHTML = "*Please Enter Valid name*";
     return false;
   } else {
+
     const names = name.split(" ");
     if (names.length < 2) {
-      alert("minimum 2 words required in full name");
+      inputName.innerHTML = "**minimum 2 words required in full name**";
+      inputName.style.display = "block";
       return false;
     } else if (names[0].length < 4 || names[1].length < 4) {
-      alert("Each words should have minimum 4 character in full name ");
+      inputName.style.display = "block";
+      inputName.innerHTML = "**Each words should have minimum 4 character in full name**";
+
       return false;
     }
   }
-  return true;
-}
+  inputName.style.display = "none";
+  inputName.innerHTML = "";
 
+  return true;
+
+} // function ends
+
+// validate pan function start
 function validatePan() {
   let pan = document.getElementById("pan").value;
+  let inputPan = document.getElementById("panValidation");
   if (pan.length === 0) {
-    alert("Please Enter Valid PAN Number");
-    // document.getElementById("pan").focus();
+    inputPan.innerHTML = "**Please Enter Valid PAN Number**";
+    inputPan.style.display = "block";
+
     return false;
   } else {
     // validate PAN pattern
     const pattern = /([a-zA-Z]){5}([0-9]{4})[A-Z]/;
     if (!pattern.test(pan)) {
-      alert("Invalid PAN Format");
+      inputPan.innerHTML = "**Invalid PAN Format**";
+      inputPan.style.display = "block";
       return false;
     }
   }
+  inputPan.style.display = "none";
+  inputPan.innerHTML = "";
+  return true;
+} // function ends
+
+// validate loan amount function start
+function validateLoanAmount() {
+  let loanAmount = document.getElementById("loan_amount").value;
+  let inputLoanAmount=document.getElementById("loanAmountValidation");
+  if (loanAmount.length === 0) {
+
+    inputLoanAmount.innerHTML = "**Please Enter Loan Amount**";
+    inputLoanAmount.style.display = "block";
+    // alert("Please Enter Loan Amount");
+    return false;
+  }
+  else if (loanAmount.length > 9) {
+    inputLoanAmount.innerHTML = "**maximum loan amount allowed 999999999**";
+    inputLoanAmount.style.display = "block";
+    // alert("maximum loan amount allowed 999999999");
+    return false;
+  }
+  inputLoanAmount.style.display = "none";
+  inputLoanAmount.innerHTML = "";
   return true;
 }
 
-function validateLoanAmount() {
-  let loanAmount = document.getElementById("loan_amount").value;
-  if (loanAmount.length === 0) {
-    alert("Please Enter Loan Amount");
-    return false;
-  } else if (loanAmount.length > 9) {
-    alert("maximum loan amount allowed 999999999");
-    return false;
-  }
-  return true;
-}
+// function ends
 
 function validateForm() {
   // validate all the fields if they are valid or not
@@ -86,7 +124,6 @@ function validateForm() {
     !validatePan() ||
     !validateLoanAmount()
   ) {
-    alert("form values are invalid");
     newCaptcha();
     return false;
   }
@@ -94,10 +131,16 @@ function validateForm() {
   //validating captcha first
 
   const userCaptcha = document.getElementById("captchaAnswer").value;
+  let inputcaptcha=document.getElementById("captchaValidation");
   if (parseInt(userCaptcha) !== captchaFirst + captchaSecond) {
-    alert("Invalid captcha");
+    inputcaptcha.style.display = "block";
+    inputcaptcha.innerHTML = "**Invalid captcha**";
     return false;
   }
+      
+
+
+
   //get data from form
 
   // if success then return true else return false

@@ -35,3 +35,8 @@ background-color:rgb(97, 176, 179);
     padding:10px;
     margin: 10px; 
 }
+.inputValidation{
+color:red;
+font-size: smaller;
+display:none;
+}
