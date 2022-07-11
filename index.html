@@ -32,11 +32,12 @@
             <span id="panValidation" class="inputValidation"></span></br></br>
 
             <label for="loanAmount">Loan Amount:</label>
-            <input type="number" id="loan_amount" name="loan_amount" onblur="validateLoanAmount()"><br>
+            <input type="number" id="loan_amount" name="loan_amount" onblur="validateLoanAmount()" onkeyup ="convertNumToWord()" > <span id="inwords">In words :-<span id="words"> </span></span></br>
             <span id="loanAmountValidation" class="inputValidation"></span></br></br>
 
             <div id="captcha">
                 <label for="captcha">captcha:</label>
+
                 <span id="firstNumber"></span>+<span id="secondNumber"></span>
                 <input type="text" id="captchaAnswer">
                <button type="button" id = refreshCaptcha onclick="newCaptcha();" >Refresh</button></br>
