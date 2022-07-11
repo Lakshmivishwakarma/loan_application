@@ -36,8 +36,8 @@ background-color:rgb(97, 176, 179);
     margin: 10px; 
 }
 .inputValidation{
-color:red;
-font-size: smaller;
+color:#f32929;
+font-size: small;
 display:none;
 }
 #words{
