@@ -231,7 +231,7 @@ function toWords(num) {
   str += (n[2] != 0) ? (a[parseInt(n[2])] || b[parseInt(n[2][0])] + a[parseInt(n[2][1])]) + ' lakh ' : "";
   str += (n[3] != 0) ? (a[parseInt(n[3])] || b[parseInt(n[3][0])] + a[parseInt(n[3][1])]) + 'Thousand ' : "";
   str += (n[4] != 0) ? (a[parseInt(n[4])]) + ' hundred ' : "";
-  str += (n[5] != 0) ? (a[parseInt(n[5])] || b[parseInt(n[5][0])] + a[parseInt(n[5][1])]) : "";
+  str += (n[5] != 0) ? ((str != '') ? 'and ' : '') +(a[parseInt(n[5])] || b[parseInt(n[5][0])] + a[parseInt(n[5][1])]) : "";
 
   inWords = str ? str + " Rs. only " : '';
   return inWords.toUpperCase();
