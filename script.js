@@ -20,17 +20,20 @@ function validateEmail() {
     inputEmail.innerHTML = "*Please Enter Valid Email ID*";
 
     return false;
-  } else {
-    // validate email pattern
-    // https://regexr.com/
-    const pattern = /\w+([.-\w])*[@]{1}(\w)+[.]{1}([.\w]){2,8}/;
-    if (!pattern.test(email)) {
-      inputEmail.style.display = "block";
-      inputEmail.innerHTML = "*Invalid Email Format*";
-      // alert("Invalid Email Format");
-      return false;
-    }
   }
+
+  // validate email pattern
+  // https://regexr.com/
+  const pattern = /^(?!.*?\.\.)[a-z]+[a-z0-9._]+[@]{1}[a-z]+[\d]*[a-z.]+$/g;
+  const isValid = pattern.test(email);
+
+  if (!isValid) {
+    inputEmail.style.display = "block";
+    inputEmail.innerHTML = "*Invalid Email Format*";
+    // alert("Invalid Email Format");
+    return false;
+  }
+
 
   inputEmail.style.display = "block";
   inputEmail.innerHTML = "";
