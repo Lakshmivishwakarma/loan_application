@@ -21,14 +21,19 @@ console.log(`Your 4 digit OTP is ${otp}`);
 let counter = 0;
 function validateOTP() {
   const user_otp = document.getElementById("user_otp").value;
+  if (user_otp === "") {
+    alert("enter otp");
+    return;
 
+  }
+  
   if (parseInt(user_otp) === otp) {
     alert("Validation successfull");
     location.replace(pixel6Url);
   } else {
     counter++;
     // reste the form
-    document.getElementById("user_otp").value ='';
+    document.getElementById("user_otp").value = '';
     alert("You have entered wrong OTP, Enter again");
     if (counter === 3) {
       location.replace(notFoundURl);
