@@ -24,7 +24,7 @@ function validateOTP() {
   const user_otp = document.getElementById("user_otp").value;
   if (user_otp === "") {
     inputotp.style.display = "block";
-    inputotp.innerHTML= "enter otp"
+    inputotp.innerHTML= "Please Enter OTP"
  // alert("enter otp");
     return;
   }
@@ -39,7 +39,7 @@ function validateOTP() {
     // reste the form
     document.getElementById("user_otp").value = '';
     inputotp.style.display = "block";
-    inputotp.innerHTML= "You have entered wrong OTP, Enter again"
+    inputotp.innerHTML= `You have entered wrong OTP, Please enter again. You have ${3 - counter} attempts remaining`
 
     // alert("You have entered wrong OTP, Enter again");
     if (counter === 3) {
