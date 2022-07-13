@@ -48,7 +48,7 @@ function validateName() {
     inputName.innerHTML = "*Please Enter Valid name*";
     return false;
   }
-  
+
   const pattern = /([A-Za-z]){4,}([\s]){1}([A-Za-z]){4,}/;
   if (!pattern.test(name)) {
     inputName.style.display = "block";
@@ -90,13 +90,16 @@ function validatePan() {
     return false;
   } else {
     // validate PAN pattern
-    const pattern = /([a-zA-Z]){5}([0-9]{4})[A-Z]/;
+    const pattern = /([a-zA-Z]){5}([0-9]{4})[A-Z]/i;
+
     if (!pattern.test(pan)) {
       inputPan.innerHTML = "**Invalid PAN Format**";
       inputPan.style.display = "block";
       return false;
     }
   }
+  const panCard = pan.toUpperCase();
+  document.getElementById("pan").value = panCard;
   inputPan.style.display = "none";
   inputPan.innerHTML = "";
   return true;

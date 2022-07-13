@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
-    <title>Loan Application</title>
-  </head>
-  <body>
-    <div id="thankuPage"><h1>THANK YOU</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+  <title>Loan Application</title>
+</head>
+
+<body>
+  <div id="thankuPage">
+    <h1>THANK YOU</h1>
     <p>Dear <span id="firstName"></span></p>
     <p>
       Thank you for your inquiry. A 4 digit verification number has been sent to
@@ -17,10 +20,12 @@
     <p>Please enter it in the following box and submit for confirmation.</p>
 
     <input type="text" id="user_otp" name="user_otp" maxlength="4" />
-    <button type="button" onclick="validateOTP()" id="validateOtp">Validate</button><br />
-
+    <span id="otpValidation" class="inputValidation"></span>
+    <button type="button" onclick="validateOTP()" id="validateOtp">Validate</button><br /></br> </br>
+    <p id="validationSuccessfull"> submission status</p>
   </div>
-    <script src="thank_you.js"></script>
+  <script src="thank_you.js"></script>
 
-  </body>
+</body>
+
 </html>

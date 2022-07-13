@@ -50,3 +50,6 @@ display:none;
     font-style: italic;
    
 }
+#validationSuccessfull{
+    display:none; 
+}
